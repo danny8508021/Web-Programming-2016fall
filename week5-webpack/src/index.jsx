@@ -1,6 +1,8 @@
 require('./todo.css');
 
-const { Component } = React;
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 const NewTodo = require('./NewTodo.jsx');
 const ItemList = require('./ItemList.jsx');
 const ControlPanel = require('./ControlPanel.jsx');
@@ -15,14 +17,14 @@ class TodoApp extends Component {
 
   addTodo = (node, event) => {
     if(event.charCode === 13 && node.value.trim()) {
-      let obj = {
+      const obj = {
         id: Date.now(),
         text: node.value,
         completed: false,
         display: true,
       };
       node.value = '';
-      this.setState((state) =>{
+      this.setState((state) => {
         state.content = [
           obj,
           ...state.content,
@@ -54,6 +56,26 @@ class TodoApp extends Component {
     });
   }
 
+  completeAll = () => {
+    console.log('click');
+    this.setState((state) => {
+      let flag = false;
+      state.content.forEach((value) => {
+        if(!value.completed) {
+          value.completed = true;
+          flag = true;
+        }
+      });
+      if(flag) return state;
+      else {
+        state.content.forEach((value) => {
+          value.completed = false;
+        });
+        return state;
+      }
+    })
+  }
+
   clearComplete = () => {
     this.setState((state) => {
       state.content = state.content.filter((value, index, array) => {
@@ -74,7 +96,7 @@ class TodoApp extends Component {
     return (
       <section className="todoapp">
         <NewTodo addTodo={this.addTodo} />
-        <ItemList content={this.state.content} complete={this.completeItem} deleteI={this.deleteItem} />
+        <ItemList content={this.state.content} complete={this.completeItem} deleteI={this.deleteItem} completeAll={this.completeAll}/>
         <ControlPanel clearComplete={this.clearComplete}>{this.countDisplay()}</ControlPanel>
       </section>     
     );
