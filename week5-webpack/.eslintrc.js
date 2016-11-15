@@ -9,5 +9,8 @@ module.exports = {
   "rules": {
     "no-console": 0,
     "func-name": 0
+  },
+  "env": {
+    "browser": true
   }
 };
