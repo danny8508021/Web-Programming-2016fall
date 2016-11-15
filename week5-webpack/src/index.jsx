@@ -1,11 +1,9 @@
-require('./todo.css');
-
+import './todo.css';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-const NewTodo = require('./NewTodo.jsx');
-const ItemList = require('./ItemList.jsx');
-const ControlPanel = require('./ControlPanel.jsx');
+import NewTodo from './NewTodo.jsx';
+import ItemList from './ItemList.jsx';
+import ControlPanel from './ControlPanel.jsx';
 
 class TodoApp extends Component {
   constructor() {
