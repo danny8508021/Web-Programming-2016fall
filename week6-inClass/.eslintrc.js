@@ -9,6 +9,8 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/jsx-no-bind': 0,
     'no-mixed-operators': 0,
+    'no-param-reassign': 0,
+    'no-console': 0,
   },
   'env': {
     browser: true, // let 'window', 'document' defined
