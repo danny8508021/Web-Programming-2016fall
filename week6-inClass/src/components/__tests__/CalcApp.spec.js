@@ -195,3 +195,132 @@ it('AC should clear state', () => {
   expect(app.state()).toEqual(initialState);
 });
 
+it('0 1 2 3 * 4 5 6 / -> 56088', () => {
+  const app = mount(<CalcApp />);
+
+  const rows = app.find('.calc-row');
+
+  const row0 = rows.at(0);
+  const btnDiv = row0.find(CalcButton).at(3);
+
+  const row1 = rows.at(1);
+  const btnMul = row1.find(CalcButton).at(3);
+
+  const row4 = rows.at(4);
+  const btn0 = row4.find(CalcButton).at(0);
+
+  const row3 = rows.at(3);
+  const btn1 = row3.find(CalcButton).at(0);
+  const btn2 = row3.find(CalcButton).at(1);
+  const btn3 = row3.find(CalcButton).at(2);
+
+  const row2 = rows.at(2);
+  const btn4 = row2.find(CalcButton).at(0);
+  const btn5 = row2.find(CalcButton).at(1);
+  const btn6 = row2.find(CalcButton).at(2);
+
+  btn0.simulate('click');
+  btn1.simulate('click');
+  btn2.simulate('click');
+  btn3.simulate('click');
+  btnMul.simulate('click');
+  btn4.simulate('click');
+  btn5.simulate('click');
+  btn6.simulate('click');
+  btnDiv.simulate('click');
+
+  expect(app.find('.calc-display').text()).toBe('56088');
+});
+
+it('Test warn log "This function is not implemented yet."', () => {
+  let tmp;
+  console.warn = jest.fn((text) => { tmp = text; });
+
+  const app = mount(<CalcApp />);
+  const rows = app.find('.calc-row');
+
+  const row0 = rows.at(0);
+  const btnSign = row0.find(CalcButton).at(1);
+  const btnModu = row0.find(CalcButton).at(2);
+
+  const row4 = rows.at(4);
+  const btnDot = row4.find(CalcButton).at(1);
+
+  btnSign.simulate('click');
+  expect(tmp).toBe('This function is not implemented yet.');
+
+  btnModu.simulate('click');
+  expect(tmp).toBe('This function is not implemented yet.');
+
+  btnDot.simulate('click');
+  expect(tmp).toBe('This function is not implemented yet.');
+});
+
+
+it('0 1 2 3 * 4 5 6 / -> 56088', () => {
+  const app = mount(<CalcApp />);
+
+  const rows = app.find('.calc-row');
+
+  const row0 = rows.at(0);
+  const btnDiv = row0.find(CalcButton).at(3);
+
+  const row1 = rows.at(1);
+  const btnMul = row1.find(CalcButton).at(3);
+
+  const row4 = rows.at(4);
+  const btn0 = row4.find(CalcButton).at(0);
+
+  const row3 = rows.at(3);
+  const btn1 = row3.find(CalcButton).at(0);
+  const btn2 = row3.find(CalcButton).at(1);
+  const btn3 = row3.find(CalcButton).at(2);
+
+  const row2 = rows.at(2);
+  const btn4 = row2.find(CalcButton).at(0);
+  const btn5 = row2.find(CalcButton).at(1);
+  const btn6 = row2.find(CalcButton).at(2);
+
+  btn0.simulate('click');
+  btn1.simulate('click');
+  btn2.simulate('click');
+  btn3.simulate('click');
+  btnMul.simulate('click');
+  btn4.simulate('click');
+  btn5.simulate('click');
+  btn6.simulate('click');
+  btnDiv.simulate('click');
+
+  expect(app.find('.calc-display').text()).toBe('56088');
+});
+
+
+it('1 + 2 - 3 = = = + -> -6', () => {
+  const app = mount(<CalcApp />);
+
+  const rows = app.find('.calc-row');
+
+  const row4 = rows.at(4);
+  const btnEqual = row4.find(CalcButton).at(2);
+
+  const row3 = rows.at(3);
+  const btn1 = row3.find(CalcButton).at(0);
+  const btn2 = row3.find(CalcButton).at(1);
+  const btn3 = row3.find(CalcButton).at(2);
+  const btnAdd = row3.find(CalcButton).at(3);
+
+  const row2 = rows.at(2);
+  const btnMinus = row2.find(CalcButton).at(3);
+
+  btn1.simulate('click');
+  btnAdd.simulate('click');
+  btn2.simulate('click');
+  btnMinus.simulate('click');
+  btn3.simulate('click');
+  btnEqual.simulate('click');
+  btnEqual.simulate('click');
+  btnEqual.simulate('click');
+  btnAdd.simulate('click');
+
+  expect(app.find('.calc-display').text()).toBe('-6');
+});
