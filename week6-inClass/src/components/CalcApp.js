@@ -1,28 +1,28 @@
 import React from 'react';
-
 import CalcButton from './CalcButton';
-// 計算機 App
+
+const identity = a => a;
 class CalcApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // TODO
-      func: a => a,
+      func: identity,
       num: '0',
       display: '0',
       istyping: false,
       afterEqual: false,
+      operating: false,
     };
   }
 
   resetState() {
-    // TODO
     this.setState({
-      func: a => a,
+      func: identity,
       num: '0',
       display: '0',
       istyping: false,
       afterEqual: false,
+      operating: false,
     });
   }
 
@@ -31,13 +31,16 @@ class CalcApp extends React.Component {
   }
 
   operation(func) {
-    if (!this.state.afterEqual)
-      this.equal();
+    if (this.state.operating === false) {
+      if (!this.state.afterEqual)
+        this.equal();
+    }
     this.setState((state) => {
       state.istyping = false;
       state.func = func;
       state.num = state.display;
       state.afterEqual = false;
+      state.operating = true;
       return state;
     });
   }
@@ -62,6 +65,7 @@ class CalcApp extends React.Component {
         if (!state.istyping) {
           state.display = x;
           state.istyping = true;
+          state.operating = false;
         }
         else state.display += x;
       }
