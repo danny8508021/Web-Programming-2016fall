@@ -30,3 +30,14 @@ it('call props.onClick when button be clicked', () => {
 
   expect(onClick).toBeCalled();
 });
+
+
+it('Test function "showNotImplemented"', () => {
+  expect(typeof (CalcButton.defaultProps.onClick)).toBe('function');
+
+  let tmp;
+  console.warn = jest.fn((text) => { tmp = text; });
+
+  CalcButton.defaultProps.onClick();
+  expect(tmp).toBe('This function is not implemented yet.');
+});
