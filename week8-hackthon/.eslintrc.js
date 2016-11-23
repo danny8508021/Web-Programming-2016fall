@@ -8,7 +8,8 @@ module.exports = {
   ],
   "rules": {
     "no-console": 0,
-    "func-name": 0
+    "func-name": 0,
+    "no-unused-vars": 0,
   },
   "env": {
     "browser": true
