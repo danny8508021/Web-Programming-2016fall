@@ -30,12 +30,16 @@ class MainApp extends Component {
     console.log('socket is running !');
   }
 
+  setCurPDF(fileName) {
+    this.setState({ curPDF: fileName });
+  }
+
   render() {
     return (
       <div className="main-app">
-        <h1 className="header"> PDF test </h1>
-        <Sidebar PDFLists={PDFLists} />
-        <PDF destination="static/pdf/test1.pdf" />
+        <h1 className="header"> PDF viewer </h1>
+        <Sidebar PDFLists={PDFLists} setCurPDF={this.setCurPDF.bind(this)} />
+        <PDF destination={this.state.curPDF} />
       </div>
     );
   }

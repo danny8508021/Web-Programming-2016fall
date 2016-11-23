@@ -6,7 +6,7 @@ class Sidebar extends React.Component {
     super();
   }
 
-  genList(PDFLists) {
+  genList(PDFLists, setCurPDF) {
     let list = [];
     for (const property in PDFLists) {
       if (PDFLists.hasOwnProperty(property)) {
@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
             <ul>
               {PDFLists[property].map((obj, index) => {
                 return (
-                  <li key={index}>{obj}</li>
+                  <li key={index}><a onClick={() => setCurPDF(obj)}>{obj}></a></li>
                 );
               })}
             </ul>
@@ -28,11 +28,11 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { PDFLists } = this.props;
+    const { PDFLists, setCurPDF } = this.props;
     return (
       <div className="sidebar">
         <ul>
-          { this.genList(PDFLists) }
+          { this.genList(PDFLists, setCurPDF) }
         </ul>
       </div>
     );
