@@ -13,10 +13,13 @@ class Sidebar extends React.Component {
         // do stuff
         list.push(
           <li key={property}>
-            <ul>
+            <h3>{property}</h3>
+            <ul className="pdflist">
               {PDFLists[property].map((obj, index) => {
                 return (
-                  <li key={index}><a onClick={() => setCurPDF(obj)}>{obj}></a></li>
+                  <li key={index}>
+                    <a style={{ fontSize: '18px' }}onClick={() => setCurPDF(obj)}>{obj}</a>
+                  </li>
                 );
               })}
             </ul>
@@ -31,7 +34,7 @@ class Sidebar extends React.Component {
     const { PDFLists, setCurPDF } = this.props;
     return (
       <div className="sidebar">
-        <ul>
+        <ul className="pdflists">
           { this.genList(PDFLists, setCurPDF) }
         </ul>
       </div>

@@ -1,9 +1,16 @@
 .sidebar {
   position: relative;
   display: inline-block;
-  top: -445px;
+  top: -260px;
   width: 250px;
-  height: 500px;
   margin: 5px;
   padding: 0;
+}
+
+.pdflists {
+  list-style-type: none;
+}
+
+.pdflist {
+  list-style-type: none;
 }
