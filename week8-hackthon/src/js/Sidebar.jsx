@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
     const { PDFLists, setCurPDF } = this.props;
     return (
       <div className="sidebar">
-        <ul className="pdflists">
+        <ul className="pdflists bg-info">
           { this.genList(PDFLists, setCurPDF) }
         </ul>
       </div>
