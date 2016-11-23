@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "build": "npm run clean && babel src -d dist --copy-files",
     "build:watch": "npm run build -- --watch",
-    "dev": "webpack-dev-server --devtool eval --progress --colors",
+    "dev": "webpack --devtool eval --progress --colors --watch",
     "deploy": "NODE_ENV=production webpack -p"
   },
   "devDependencies": {
