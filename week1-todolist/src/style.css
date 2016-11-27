@@ -1,0 +1,124 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #EFEFDF;
+}
+
+.title {
+	color: #341293;
+	position: absolute;
+	width: 100%;
+	top: -120px;
+	text-align: center;
+	font-size: 50px;
+}
+
+.toggle {
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	left: 5px;
+	position: absolute;
+	display: inline;
+	box-sizing: border-box;
+	border: 1px solid #78A239;
+	border-radius: 25px;
+	background-color: white;
+}
+
+.toggle:focus {
+	outline: none;
+}
+
+.right-img {
+	width: 30px;
+	height: 30px;
+	top: 10px;
+	left: 10px;
+	position: absolute;
+	display: none;
+}
+
+.line {
+	margin-left: 50px;
+	height: 50px;
+	font-size: 30px;
+	line-height: 1.4em;
+	display: block;
+	padding: auto 0px;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.effect:hover {
+	background-color: #EFEFDF;
+	color: #898978;
+}
+
+.new-todo {
+	border: 0px;
+	font-size: 30px;
+	box-sizing: border-box;
+	height: 70px;
+	width: 100%;
+	padding: 10px 10px 10px 50px;
+}
+
+.show {
+	display: block;
+}
+
+.list {
+	list-style: none;
+	height: 50px;
+}
+
+.todo-list {
+	padding: 0px;
+	margin: 0px;
+}
+
+.new-todo:focus {
+	outline: none;
+}
+
+.main-container {
+	min-width: 230px;
+	max-width: 550px;
+	margin: 120px auto;
+	display: block;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	0 25px 50px 0 rgba(0, 0, 0, 0.1);
+	background-color: white;
+}
+
+.todo-app {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.line-wrap {
+	position: relative;
+}
+
+.foot{
+	width: 100%;
+	display: block;
+	align-items: center;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	            0 8px 0 -3px #f6f6f6,
+	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	            0 16px 0 -6px #f6f6f6,
+	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.foot-note {
+	color: #AAAAAA;
+	font-style: italic;
+	line-height: 2.2em;
+	width: 200px;
+	margin: 0px auto;
+}

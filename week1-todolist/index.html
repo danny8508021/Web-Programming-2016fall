@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Todos List</title>
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="todo-app">
+        <header class="header">
+          <h1 class="title">My todo-list</h1>
+          <input class="new-todo" 
+                 placeholder="What needs to be done?"
+                 type="text"
+                 onkeypress="return expandItem(this, event);">
+        </header>
+        <div class="main-list">
+          <ul class="todo-list">
+          </ul>
+          <div class="operation-list"></div>
+        </div>
+        <div class="foot">
+          <h3 class="foot-note"> Check to complete ! </h3>
+        </div>  
+      </div>
+    </div>
+  </body>
+  <script src="src/script.js"></script>
+</html>
