@@ -5,7 +5,7 @@ h3 {
 .sidebar {
   position: relative;
   display: inline-block;
-  top: -333px;
+  top: -398px;
   width: 250px;
   margin: 10px;
   padding: 0;
@@ -13,9 +13,20 @@ h3 {
 
 .pdflists {
   padding: 5px;
+  background-color: #c0dbf3;
   list-style-type: none;
+  border-radius: 5px;
 }
 
 .pdflist {
   list-style-type: none;
+}
+
+.pdfLink {
+  font-size: 18px;
+  text-decoration: none;
+}
+.pdfLink:hover {
+  color: black;
+  text-decoration: none;
 }

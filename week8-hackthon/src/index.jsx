@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Header from './js/Header.jsx';
 import PDF from './js/PDF.jsx';
 import Sidebar from './js/Sidebar.jsx';
 import './css/index.css';
@@ -37,7 +38,7 @@ class MainApp extends Component {
   render() {
     return (
       <div className="main-app">
-        <h1 className="header"> PDF viewer </h1>
+        <Header>PDF viewer</Header>
         <Sidebar PDFLists={PDFLists} setCurPDF={this.setCurPDF.bind(this)} />
         <PDF destination={this.state.curPDF} />
       </div>
