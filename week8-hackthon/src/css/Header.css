@@ -1,4 +1,12 @@
-.header {
+.active {
+  color: white;
+}
+
+#head-bar {
+  font-family: 'Roboto', sans-serif;
+}
+
+#brand {
   font-size: 30px;
-  margin: 5px 5px 5px 10px;
+  color: #fff;
 }
