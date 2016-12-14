@@ -5,7 +5,7 @@ h3 {
 .sidebar {
   position: relative;
   display: inline-block;
-  top: -398px;
+  top: 0px;
   width: 250px;
   margin: 10px;
   padding: 0;

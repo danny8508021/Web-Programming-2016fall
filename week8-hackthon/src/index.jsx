@@ -40,11 +40,11 @@ class MainApp extends Component {
       <div className="main-app">
         <Header>PDF viewer</Header>
         <Sidebar PDFLists={PDFLists} setCurPDF={this.setCurPDF.bind(this)} />
-        <PDF destination={this.state.curPDF} />
       </div>
     );
   }
 }
+        // <PDF destination={this.state.curPDF} />
 
 ReactDOM.render(
   <MainApp />,

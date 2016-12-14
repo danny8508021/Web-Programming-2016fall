@@ -9,6 +9,9 @@ const options = {
 
 const articleSchema = mongoose.Schema({
   id: String,
+  title: String,
+  content: String,
+  tags: [String],
   // add more
 }, options);
 

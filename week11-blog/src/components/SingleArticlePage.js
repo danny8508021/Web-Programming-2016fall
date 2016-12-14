@@ -17,6 +17,10 @@ class SingleArticlePage extends Component {
 
   componentDidMount() {
     // fetch with id
+    const id = window.location.hash.substr(1).split('/articles/')[1];
+    fetch(`api/articles/${id}`)
+      .then(res => { return res.json(); })
+      .then(json => { this.setState({ title: json.title, content: json.content, tags: json.tags }); });
   }
 
   componentDidUpdate() {
@@ -31,11 +35,24 @@ class SingleArticlePage extends Component {
 
   handleEditClick = () => {};
 
-  renderTitle = () => {};
+  renderTitle = () => {
+    return (
+      <h1>{this.state.title}</h1>
+    );
+  };
 
-  renderTags = () => {};
+  renderTags = () => {
+    return this.state.tags.map((obj, index) => {
+      return <div style={{display: 'inline', color: 'green', padding: '5px'}}
+                  key={index}>{obj}</div>;
+    });
+  };
 
-  renderContent = () => {};
+  renderContent = () => {
+    return (
+      <p>{this.state.content}</p>
+    );
+  };
 
   render() {
     const { isEditing } = this.state;

@@ -12,6 +12,25 @@ class ArticlesPage extends Component {
 
   componentDidMount() {
     // fetch here
+    fetch('api/articles')
+      .then(res => { return res.json(); })
+      .then(json => { this.setState({ articles: json }); });
+  }
+
+  renderArticles() {
+    return (
+      <ul>
+        { 
+          this.state.articles.map((obj, index) => {
+            return (
+              <li key={index}>
+                <a href={`#/articles/${obj._id}`}>{obj.title}</a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    );
   }
 
   render() {
@@ -19,7 +38,7 @@ class ArticlesPage extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            {/* implement */}
+            { this.renderArticles() }
           </div>
         </div>
       </div>

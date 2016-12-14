@@ -33,13 +33,18 @@ class Sidebar extends React.Component {
   render() {
     const { PDFLists, setCurPDF } = this.props;
     return (
-      <div className="sidebar">
-        <ul className="pdflists">
-          { this.genList(PDFLists, setCurPDF) }
+      <div className="col-md-3">
+        <ul className="nav nav-pills nav-stacked">
+          <li><a href="#">jedan</a></li>
+          <li><a href="#">dva</a></li>
+          <li><a href="#">tri</a></li>
         </ul>
       </div>
     );
   }
 }
+//        <ul className="pdflists">
+//          { this.genList(PDFLists, setCurPDF) }
+//        </ul>
 
 module.exports = Sidebar;

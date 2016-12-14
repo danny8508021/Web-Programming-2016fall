@@ -1,10 +1,15 @@
 import { Router } from 'express';
 
-// import model
+import { Article } from '../models/index';
+// console.log('get', Article);
 
 const articleRouter = new Router();
 
 articleRouter.get('/', (req, res) => {
+  Article.find({}, (err, articles) => {
+    if(err) return res.status(500).send(err);
+    return res.json(articles);
+  })
 });
 
 articleRouter.get('/:id', (req, res) => {
@@ -40,7 +45,8 @@ articleRouter.delete('/:id', (req, res) => {
   const id = req.params.id;
 
   Article.findByIdAndRemove(id, err => {
-    // if(err) 
+    if(err) return res.status(500).send(err);
+    return res.send('content of id: ' + id + ' has been remove.');
   });
 });
 
